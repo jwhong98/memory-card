@@ -1,0 +1,8 @@
+@import "../../Styles/mixins";
+
+main {
+  padding: 20px;
+  @include flexContainer;
+  flex-wrap: wrap;
+  gap: 10px;
+}

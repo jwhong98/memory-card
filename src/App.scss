@@ -1,5 +1,13 @@
+@import "./Styles/variables";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: arial, georgia, sans-serif;
+}
+
+body {
+  background: $background-dark;
+  color: $light;
 }
