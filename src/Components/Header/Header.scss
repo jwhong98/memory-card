@@ -1,0 +1,6 @@
+@import "../../Styles/mixins";
+
+.header {
+  @include flexCol;
+  justify-content: center;
+}

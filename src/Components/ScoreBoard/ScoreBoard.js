@@ -1,7 +1,7 @@
 import React from "react";
 
-const ScoreBoard = () => {
-  return <div>ScoreBoard</div>;
+const ScoreBoard = (props) => {
+  return <div>ScoreBoard: {props.score}</div>;
 };
 
 export default ScoreBoard;

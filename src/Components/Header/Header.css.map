@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,OAAO,CAAC;ECDN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EDCnB,eAAe,EAAE,MAAM;CACxB",
+    "sources": [
+        "Header.scss",
+        "../../Styles/_mixins.scss"
+    ],
+    "names": [],
+    "file": "Header.css"
+}
