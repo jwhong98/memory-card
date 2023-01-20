@@ -12,6 +12,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &__name {
     color: $light;
@@ -19,4 +21,9 @@
     font-weight: 700;
     text-transform: uppercase;
   }
+}
+
+.card:hover {
+  border: 1px solid #fff;
+  transform: scale(1.1);
 }
