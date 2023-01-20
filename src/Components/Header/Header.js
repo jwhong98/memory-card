@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <h1>Memory Card</h1>
-      <ScoreBoard score={props.score} />
+      <ScoreBoard score={props.score} bestScore={props.bestScore} />
     </header>
   );
 };

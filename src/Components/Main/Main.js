@@ -15,11 +15,11 @@ const Main = () => {
       .then(
         (result) => {
           setIsLoaded(true);
+          // filter result so that we dont get duplicate data
           const filtered = result.data.filter(
             (el) => el.isPlayableCharacter !== false
           );
-          console.log(filtered);
-          setAgents(result);
+          setAgents(filtered);
         },
         (error) => {
           setIsLoaded(true);
@@ -30,16 +30,39 @@ const Main = () => {
 
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [selected, setSelected] = useState([]);
   const scoreUpdater = () => {
     setScore(score + 1);
-    console.log(agents.data);
   };
   const resetScore = () => {
     setScore(0);
   };
+  const updateBestScore = () => {
+    if (score > bestScore) {
+      setBestScore(score);
+    }
+  };
+  const cardClickHandler = (id) => {
+    if (!selected.includes(id)) {
+      setSelected((prevArr) => [...prevArr, id]);
+      scoreUpdater();
+    } else {
+      updateBestScore();
+      setSelected([]);
+      resetScore();
+    }
+  };
 
   const createCard = (data, key) => {
-    return <Card key={key} agent={data.displayName} img={data.fullPortrait} />;
+    return (
+      <Card
+        key={key}
+        val={key}
+        agent={data.displayName}
+        img={data.fullPortrait}
+        cardClick={cardClickHandler}
+      />
+    );
   };
 
   if (error) {
@@ -50,7 +73,7 @@ const Main = () => {
     return (
       <>
         <Header score={score} bestScore={bestScore} />
-        <main>{agents.data.map((el, i) => createCard(el, i))}</main>
+        <main>{agents.map((el, i) => createCard(el, i))}</main>
       </>
     );
   }
