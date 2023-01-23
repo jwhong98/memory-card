@@ -42,22 +42,28 @@ const Main = () => {
       setBestScore(score);
     }
   };
-  const cardClickHandler = (id) => {
-    if (!selected.includes(id)) {
-      setSelected((prevArr) => [...prevArr, id]);
+  const cardClickHandler = (name) => {
+    if (!selected.includes(name)) {
+      setSelected((prevArr) => [...prevArr, name]);
       scoreUpdater();
     } else {
       updateBestScore();
       setSelected([]);
       resetScore();
     }
+    shuffleArray(agents);
+  };
+
+  const shuffleArray = (arr) => {
+    let shuffled = arr.sort(() => Math.random() - 0.5);
+    setAgents(shuffled);
   };
 
   const createCard = (data, key) => {
     return (
       <Card
         key={key}
-        val={key}
+        val={data.displayName}
         agent={data.displayName}
         img={data.fullPortrait}
         cardClick={cardClickHandler}
