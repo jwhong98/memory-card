@@ -3,4 +3,12 @@
 .header {
   @include flexCol;
   justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.shuffleBtn {
+  padding: 5px;
+  font-size: 20px;
 }

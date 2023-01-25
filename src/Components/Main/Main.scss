@@ -1,8 +1,9 @@
 @import "../../Styles/mixins";
 
-main {
+.gameBoard {
   padding: 20px;
-  @include flexContainer;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
 }
