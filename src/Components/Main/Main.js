@@ -54,6 +54,15 @@ const Main = () => {
     shuffleArray();
   };
 
+  // const btnHandler = () => {
+  //   if (selected.length === 0) {
+  //     setSelected([]);
+  //   } else {
+  //     setSelected(...selected);
+  //   }
+  //   shuffleArray();
+  // };
+
   const shuffleArray = () => {
     setAgents(agents.sort(() => Math.random() - 0.5));
   };
@@ -70,10 +79,6 @@ const Main = () => {
     );
   };
 
-  const firstTen = () => {
-    return agents.slice(0, 10).map((el, i) => createCard(el, i));
-  };
-
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -81,9 +86,11 @@ const Main = () => {
   } else {
     return (
       <>
-        <Header score={score} bestScore={bestScore} onClick={shuffleArray} />
+        <Header score={score} bestScore={bestScore} />
         <main>
-          <div className="gameBoard">{firstTen()}</div>
+          <div className="gameBoard">
+            {agents.slice(0, 10).map((el, i) => createCard(el, i))}
+          </div>
         </main>
       </>
     );
